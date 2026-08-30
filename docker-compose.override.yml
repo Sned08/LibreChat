@@ -1,12 +1,19 @@
 services:
-  mongodb:
-    image: mongo:4.4.18
+  api:
     volumes:
       - type: bind
-        source: ./librechat.yaml
+        source: /volume1/docker/librechat/.env
+        target: /app/.env
+      - type: bind
+        source: /volume1/docker/librechat/librechat.yaml
         target: /app/librechat.yaml
       - /volume1/docker/librechat/images:/app/client/public/images
       - /volume1/docker/librechat/uploads:/app/uploads
-      - /volume1/docker/librechat/logs:/app/api/logs
+      - /volume1/docker/librechat/logs:/app/logs
       - /volume1/docker/librechat/skill:/app/skill
       - librechat-data:/app/data
+
+  mongodb:
+    image: mongo:4.4.18
+    volumes:
+      - /volume1/docker/librechat/data-node:/data/db
