@@ -12,6 +12,7 @@ services:
       - /volume1/docker/librechat/logs:/app/logs
       - /volume1/docker/librechat/skill:/app/skill
       - /volume1/docker/librechat/data-node:/data/db
+      - /volume1/docker/librechat/meili_data_v1.35.1:/meili_data
 
   mongodb:
     image: mongo:4.4.18
