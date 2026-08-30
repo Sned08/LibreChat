@@ -11,8 +11,8 @@ services:
       - /volume1/docker/librechat/uploads:/app/uploads
       - /volume1/docker/librechat/logs:/app/logs
       - /volume1/docker/librechat/skill:/app/skill
+      - /volume1/docker/librechat/data-node:/data/db
 
   mongodb:
     image: mongo:4.4.18
-    volumes:
-      - /volume1/docker/librechat/data-node:/data/db
+    
