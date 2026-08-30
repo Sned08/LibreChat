@@ -30,7 +30,7 @@ services:
       - no_proxy=${no_proxy:-localhost,127.0.0.1,::1},${NO_PROXY:-},mongodb,chat-mongodb,meilisearch,chat-meilisearch,rag_api,vectordb,host.docker.internal
     volumes:
       - type: bind
-        source: ./.env
+        source: /volume1/docker/librechat/.env
         target: /app/.env
       - /volume1/docker/librechat/images:/app/client/public/images
       - /volume1/docker/librechat/uploads:/app/uploads
